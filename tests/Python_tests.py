@@ -7,12 +7,27 @@ def test_dark_theme():
     current_time = time(hour=23)
     # TODO переключите темную тему в зависимости от времени суток (с 22 до 6 часов утра - ночь)
     is_dark_theme = None
+    if current_time >= time(22):
+        is_dark_theme = True
+    elif current_time <= time(6):
+        is_dark_theme = True
+    else:
+        is_dark_theme = False
     assert is_dark_theme is True
+
     current_time = time(hour=16)
     dark_theme_enabled = True
     # TODO переключите темную тему в зависимости от времени суток,
     #  но учтите что темная тема может быть включена вручную
     is_dark_theme = None
+    if current_time >= time(22):
+        is_dark_theme = True
+    elif current_time <= time(6):
+        is_dark_theme = True
+    elif dark_theme_enabled:
+        is_dark_theme = True
+    else:
+        is_dark_theme = False
     assert is_dark_theme is True
 
 def test_find_suitable_user():
