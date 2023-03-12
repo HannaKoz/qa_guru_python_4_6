@@ -4,6 +4,7 @@ def test_dark_theme():
     """
     Протестируйте правильность переключения темной темы на сайте
     """
+    #Test_1 - dark time
     current_time = time(hour=23)
     # TODO переключите темную тему в зависимости от времени суток (с 22 до 6 часов утра - ночь)
     is_dark_theme = None
@@ -15,6 +16,7 @@ def test_dark_theme():
         is_dark_theme = False
     assert is_dark_theme is True
 
+    #Test_2 - daytime dark them
     current_time = time(hour=16)
     dark_theme_enabled = True
     # TODO переключите темную тему в зависимости от времени суток,
