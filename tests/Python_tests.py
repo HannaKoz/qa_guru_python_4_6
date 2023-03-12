@@ -1,10 +1,11 @@
 from datetime import time
 
+
 def test_dark_theme():
     """
     Протестируйте правильность переключения темной темы на сайте
     """
-    #Test_1 - dark time
+    # Test_1 - dark time
     current_time = time(hour=23)
     # TODO переключите темную тему в зависимости от времени суток (с 22 до 6 часов утра - ночь)
     is_dark_theme = None
@@ -16,7 +17,7 @@ def test_dark_theme():
         is_dark_theme = False
     assert is_dark_theme is True
 
-    #Test_2 - daytime dark them
+    # Test_2 - daytime dark theme
     current_time = time(hour=16)
     dark_theme_enabled = True
     # TODO переключите темную тему в зависимости от времени суток,
@@ -32,6 +33,7 @@ def test_dark_theme():
         is_dark_theme = False
     assert is_dark_theme is True
 
+
 def test_find_suitable_user():
     """
     Найдите нужного пользователя по условиям в списке пользователей
@@ -44,14 +46,32 @@ def test_find_suitable_user():
         {"name": "Maria", "age": 18},
     ]
     # TODO найдите пользователя с именем "Olga"
+    # Test_1: Find exact name (single position search)
     suiable_user = None
+    first_name_1 = "Olga"
+    for user in users:
+        if user['name'] == first_name_1:
+            suiable_user = user
+            print(f"🎊 Look! We have found {user['name']} here!🎊")
+        else:
+            print(f"Oops, this is no {user['name']} 😢")
+
     assert suiable_user == {"name": "Olga", "age": 45}
+
     # TODO найдите всех пользователей младше 20 лет
+    # Test_2: Find a list by age
     suiable_users = None
+    suiable_users = []
+    for by_age in users:
+        if by_age['age'] <= 20:
+            suiable_users.append(by_age)
+            print(f"😎 {by_age['name']} is under 20")
+
     assert suiable_users == [
         {"name": "Stanislav", "age": 15},
         {"name": "Maria", "age": 18},
     ]
+
 
 # Сделайте функцию, которая будет печатать
 # читаемое имя переданной ей функции и значений аргументов.
@@ -68,13 +88,16 @@ def test_readable_function():
     go_to_companyname_homepage(page_url="https://companyname.com")
     find_registration_button_on_login_page(page_url="https://companyname.com/login", button_text="Register")
 
+
 def open_browser(browser_name):
     actual_result = None
     assert actual_result == "Open Browser [Chrome]"
 
+
 def go_to_companyname_homepage(page_url):
     actual_result = None
     assert actual_result == "Go To Companyname Homepage [https://companyname.com]"
+
 
 def find_registration_button_on_login_page(page_url, button_text):
     actual_result = None
