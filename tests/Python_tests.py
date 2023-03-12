@@ -84,8 +84,8 @@ def test_find_suitable_user():
 # >>> open_browser(browser_name="Chrome")
 # "Open Browser [Chrome]"
 
-# def fuction_print(function_name, arguments):
-#     return f'{fanction_name.__name__.replace("_", " ")}, {arguments}'
+def fuction_print(function_name, arguments):
+    return f'{fanction_name.__name__.replace("_", " ").title()}, {arguments}'
 
 
 def test_readable_function():
