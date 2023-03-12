@@ -1,4 +1,5 @@
 from datetime import time
+from selene import browser
 
 
 def test_dark_theme():
@@ -54,7 +55,7 @@ def test_find_suitable_user():
             suiable_user = user
             print(f"🎊 Look! We have found {user['name']} here!🎊")
         else:
-            print(f"Oops, this is no {user['name']} 😢")
+            print(f"Oops, {user['name']} doesn't match 😢")
 
     assert suiable_user == {"name": "Olga", "age": 45}
 
@@ -83,6 +84,10 @@ def test_find_suitable_user():
 # >>> open_browser(browser_name="Chrome")
 # "Open Browser [Chrome]"
 
+# def fuction_print(function_name, arguments):
+#     return f'{fanction_name.__name__.replace("_", " ")}, {arguments}'
+
+
 def test_readable_function():
     open_browser(browser_name="Chrome")
     go_to_companyname_homepage(page_url="https://companyname.com")
@@ -90,6 +95,7 @@ def test_readable_function():
 
 
 def open_browser(browser_name):
+    browser.config.browser_name = "Chrome"
     actual_result = None
     assert actual_result == "Open Browser [Chrome]"
 
