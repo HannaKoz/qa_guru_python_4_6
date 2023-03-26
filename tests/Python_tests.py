@@ -1,5 +1,4 @@
 from datetime import time
-from shlex import join
 
 from selene import browser
 
@@ -88,7 +87,6 @@ def test_find_suitable_user():
 # "Open Browser [Chrome]"
 
 def convert_to_readable_name(function_name, *func_args):
-
     '''For "function_name" use function's name only, don't add "()" to it.
     For "func_args" use argument's name only, don't add "()" to it.'''
 
