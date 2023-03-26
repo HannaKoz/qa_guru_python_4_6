@@ -88,7 +88,10 @@ def test_find_suitable_user():
 # "Open Browser [Chrome]"
 
 def convert_to_readable_name(function_name, *func_args):
-    '''Use function's name and argument's name only, don't add "()" to it'''
+
+    '''For "function_name" use function's name only, don't add "()" to it.
+    For "func_args" use argument's name only, don't add "()" to it.'''
+
     readable_func_name = function_name.__name__.replace("_", " ").title()
     arguments = ", ".join(func_args)
     return f'{readable_func_name} [{arguments}]'
