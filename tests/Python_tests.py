@@ -11,10 +11,12 @@ def test_dark_theme():
     current_time = time(hour=23)
     # TODO переключите темную тему в зависимости от времени суток (с 22 до 6 часов утра - ночь)
     is_dark_theme = None
-    if current_time >= time(22):
+    if current_time >= time(22) or current_time <= time(6):
         is_dark_theme = True
-    elif current_time <= time(6):
-        is_dark_theme = True
+    # if current_time >= time(22):
+    #     is_dark_theme = True
+    # elif current_time <= time(6):
+    #     is_dark_theme = True
     else:
         is_dark_theme = False
     assert is_dark_theme is True
@@ -86,6 +88,7 @@ def test_find_suitable_user():
 # >>> open_browser(browser_name="Chrome")
 # "Open Browser [Chrome]"
 
+
 def convert_to_readable_name(function_name, *func_args):
     '''For "function_name" use function's name only, don't add "()" to it.
     For "func_args" use argument's name only, don't add "()" to it.'''
@@ -98,7 +101,9 @@ def convert_to_readable_name(function_name, *func_args):
 def test_readable_function():
     open_browser(browser_name="Chrome")
     go_to_companyname_homepage(page_url="https://companyname.com")
-    find_registration_button_on_login_page(page_url="https://companyname.com/login", button_text="Register")
+    find_registration_button_on_login_page(
+        page_url="https://companyname.com/login", button_text="Register"
+    )
 
 
 def open_browser(browser_name):
@@ -115,6 +120,11 @@ def go_to_companyname_homepage(page_url):
 
 
 def find_registration_button_on_login_page(page_url, button_text):
-    actual_result = convert_to_readable_name(find_registration_button_on_login_page, page_url, button_text)
+    actual_result = convert_to_readable_name(
+        find_registration_button_on_login_page, page_url, button_text
+    )
     print(actual_result)
-    assert actual_result == "Find Registration Button On Login Page [https://companyname.com/login, Register]"
+    assert (
+        actual_result
+        == "Find Registration Button On Login Page [https://companyname.com/login, Register]"
+    )
